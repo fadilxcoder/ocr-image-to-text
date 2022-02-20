@@ -1,0 +1,17 @@
+#!/usr/bin/php
+<?php
+
+require_once "vendor/autoload.php";
+
+use thiagoalessio\TesseractOCR\TesseractOCR;
+
+// $image = 'text-image.png';
+$image = 'student-id.jpg';
+// $image = 'bussiness-card.png';
+
+$path = './images/' . $image;
+
+$data = (new TesseractOCR($path))
+            ->run();
+	
+file_put_contents('text.txt', $data);	
